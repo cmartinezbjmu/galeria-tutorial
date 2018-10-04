@@ -1,3 +1,10 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +14,13 @@
 <body>
 <h1 align="center">Galeria</h1>
     {% for imagen in lista_imagenes %}
-        {% if imagen.imageFile == None %}
-            <img src="{{ imagen.url }}" width="500" height="300">
-        {% else %}
-            <img src="/{{ imagen.imageFile }}" width="500" height="300">
-        {% endif %}
+        <div class="col-md-4 col-sm-6 col-lg-3 well">
+            {% if imagen.imageFile == None %}
+                <img class="img-responsive" src="{{ imagen.url }}" width="500" height="300">
+            {% else %}
+                <img class="img-responsive" src="/{{ imagen.imageFile }}" width="500" height="300">
+            {% endif %}
+        </div>
     {% endfor %}
 </body>
 </html>

@@ -10,6 +10,7 @@ class Imagen(models.Model):
     type = models.CharField(max_length=5,blank=True)
     imageFile = models.ImageField(upload_to='images',null=True)
 
+
 class ImageForm(ModelForm):
     class Meta:
         model = Imagen
